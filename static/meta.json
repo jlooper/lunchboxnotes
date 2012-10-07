@@ -1,0 +1,8 @@
+{
+    "name": "Lunchbox Notes",
+    "description": "Happy notes to include in your child's lunchbox",
+    "delivered_on": "every day",
+    "send_timezone_info": "false",
+    "send_delivery_count": "false",
+    "external_configuration": "false"
+}
