@@ -2,10 +2,78 @@
 <html>
 <head>
   <title>Lunchbox Notes</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  
+  <style type="text/css">
+
+  	body
+	{
+		background-image:url('/assets/bgPeople.png');
+		background-repeat:repeat-x;
+		font-family:'Signika';
+		font-size:12px;	
+		text-align: center;
+    	margin-top: 20px;
+	}
+	.note {	
+		font: 40px 'Verdana';
+		background-color:white;
+		background-repeat:no-repeat;
+		width:300px;
+		height:400px;
+	}
+	.noteText {
+		padding:25px;
+	}
+
+  </style>
+  
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+
+	$.randomImage = {
+		defaults: {			
+			path: '/assets/', //change this to the path of your images
+			myImages: ['bgNotes1.png', 'bgNotes2.png','bgNotes3.png','bgNotes4.png','bgNotes5.png','bgNotes6.png','bgNotes7.png','bgNotes8.png','bgNotes9.png','bgNotes10.png' ] 
+			
+		}			
+	}
+	
+		$.fn.extend({
+				randomImage:function(config) {
+					
+					var config = $.extend({}, $.randomImage.defaults, config); 
+					
+					 return this.each(function() {
+							
+							var imageNames = config.myImages;
+							
+							var imageNamesSize = imageNames.length;
+
+							var lotteryNumber = Math.floor(Math.random()*imageNamesSize);
+
+							var winnerImage = imageNames[lotteryNumber];
+
+							var fullPath = config.path + winnerImage;
+							
+							$(this).attr('style', 'background-image:url('+fullPath+');');
+					
+							
+					});	
+				}
+				
+		});
+
+		$('.note').randomImage();
+
+	});
+  
+  </script>
+  
   <%= csrf_meta_tags %>
+
 </head>
+
 <body>
 
 <%= yield %>
