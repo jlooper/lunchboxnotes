@@ -66,4 +66,5 @@ Lunchboxnotes::Application.routes.draw do
   match 'logout' => "user_sessions#destroy", :as => :logout
   match 'signup' => 'users#new', :as => :signup
   match 'edition' => 'welcome#index', :as => :edition
+  match 'sample' => 'welcome#index', :as => :edition
 end
