@@ -99,48 +99,7 @@
 
   </style>
   
-  <script type="text/javascript">
   
-  $(document).ready(function() {
-
-	$.randomImage = {
-		defaults: {			
-			path: 'http://ancient-mountain-7579.herokuapp.com/assets/', 
-			myImages: ['bgNotes1.png', 'bgNotes2.png','bgNotes3.png','bgNotes4.png','bgNotes5.png','bgNotes6.png','bgNotes7.png','bgNotes8.png','bgNotes9.png','bgNotes10.png' ] 
-			
-		}			
-	}
-	
-		$.fn.extend({
-				randomImage:function(config) {
-					
-					var config = $.extend({}, $.randomImage.defaults, config); 
-					
-					 return this.each(function() {
-							
-							var imageNames = config.myImages;
-							
-							var imageNamesSize = imageNames.length;
-
-							var lotteryNumber = Math.floor(Math.random()*imageNamesSize);
-
-							var winnerImage = imageNames[lotteryNumber];
-
-							var fullPath = config.path + winnerImage;
-							
-							$(this).attr('style', 'background-image:url('+fullPath+');');
-					
-							
-					});	
-				}
-				
-		});
-
-		$('.note').randomImage();
-
-	});
-  
-  </script>
   
   <%= csrf_meta_tags %>
 
