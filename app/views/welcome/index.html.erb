@@ -1,5 +1,6 @@
 
 <% @notes.find(1) do |note| %>
+<div class="noteHeader">LunchBox Notes<br/><span class="noteHeaderSmall">by LadeezFirstMedia</span></div>
     <div class="note" id="note" style="background-image:url('http://ancient-mountain-7579.herokuapp.com/assets/<%= @random_image%>')">
     	<div class="noteText">
     		<%= note.content %>
